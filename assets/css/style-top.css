@@ -1,0 +1,360 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: aquamarine;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.nav {
+    display: flex;
+    padding: 10px;
+}
+
+@media screen and (max-width:780px) {
+    .nav {
+    display: flex;
+    background-color: aquamarine;
+    }
+}
+
+li {
+    list-style: none;
+}
+
+@media screen and (max-width:780px) {
+    li {
+        background-color: aquamarine;
+    }
+}
+
+.nav > li > a {
+    color: white;
+    font-size: 20px;
+    margin-left: 60px;
+    text-decoration: none;
+}
+
+@media screen and (max-width:780px) {
+    .nav > li > a {
+    color: white;
+    font-size: 10px;
+    margin-left: 20px;
+    text-decoration: none;
+    background-color: aquamarine;
+    }
+}
+
+/* ハンバーガーメニュー */
+#g-nav{
+    /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
+    position:fixed;
+    z-index: 999;
+    /*ナビのスタート位置と形状*/
+    top:-120%;
+    left:0;
+    width:100%;
+    height: 100vh;/*ナビの高さ*/
+    background:#999;
+    /*動き*/
+    transition: all 0.6s;
+}
+
+/*アクティブクラスがついたら位置を0に*/
+#g-nav.panelactive{
+    top: 0;
+}
+
+/*ナビゲーションの縦スクロール*/
+#g-nav.panelactive #g-nav-list{
+    /*ナビの数が増えた場合縦スクロール*/
+    position: fixed;
+    z-index: 999; 
+    width: 100%;
+    height: 100vh;/*表示する高さ*/
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/*ナビゲーション*/
+#g-nav ul {
+    /*ナビゲーション天地中央揃え*/
+    position: absolute;
+    z-index: 999;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+
+/*リストのレイアウト設定*/
+
+#g-nav li{
+    list-style: none;
+    text-align: center; 
+}
+
+#g-nav li a{
+color: #333;
+text-decoration: none;
+padding:10px;
+display: block;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+font-weight: bold;
+}
+
+@media screen and (max-width:780px) {
+    #g-nav li a {
+        background-color: rgb(155, 153, 153);
+    }
+}
+
+/*========= ボタンのためのCSS ===============*/
+.openbtn1{
+    position:fixed;
+    z-index: 9999;/*ボタンを最前面に*/
+    right: 10px;
+    cursor: pointer;
+    width: 50px;
+    height:50px;
+}
+
+/*×に変化*/  
+.openbtn1 span{
+    display: inline-block;
+    transition: all .4s;
+    position: absolute;
+    left: 14px;
+    height: 3px;
+    border-radius: 2px;
+    background-color: #666;
+    width: 45%;
+}
+
+.openbtn1 span:nth-of-type(1) {
+    top:15px; 
+}
+
+.openbtn1 span:nth-of-type(2) {
+    top:23px;
+}
+
+.openbtn1 span:nth-of-type(3) {
+    top:31px;
+}
+
+.openbtn1.active span:nth-of-type(1) {
+    top: 18px;
+    left: 18px;
+    transform: translateY(6px) rotate(-45deg);
+    width: 30%;
+}
+
+.openbtn1.active span:nth-of-type(2) {
+    opacity: 0;
+}
+
+.openbtn1.active span:nth-of-type(3){
+    top: 30px;
+    left: 18px;
+    transform: translateY(-6px) rotate(45deg);
+    width: 30%;
+}
+
+/* Top */
+.Top > img {
+    position: relative;
+    width: 100vw;
+    height: 100vh; 
+}
+
+@media screen and (max-width:780px) {
+    .Top > img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.sentence-Top1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 125px;
+    padding-left: 40px;
+    margin-top: 80px;
+    color: white;
+}
+
+@media screen and (max-width:780px) {
+    .sentence-Top1 {
+        display: none;
+    }
+}
+
+.sentence-Top2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 125px;
+    padding-top: 240px;
+    padding-left: 370px;
+    color: white;
+}
+
+@media screen and (max-width:780px) {
+    .sentence-Top2 {
+        display: none;
+    }
+}
+
+.sentence-Top3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 125px;
+    padding-top: 380px;
+    padding-left: 780px;
+    color: white;
+}
+
+@media screen and (max-width:780px) {
+    .sentence-Top3 {
+        display: none;
+    }
+}
+
+.Top {
+    animation-name: fadeInAnime;/*1で解説*/
+    animation-fill-mode:forwards;/*2で解説*/
+    animation-duration:3s;/*3で解説*/
+    animation-iteration-count:1;/*4で解説*/
+    animation-timing-function:ease;/*5で解説*/
+    animation-delay: 0.5s;/*6で解説*/
+    animation-direction:normal;/*7で解説*/
+    }
+    
+    /*1で解説*/
+    @keyframes fadeInAnime{
+    0% {
+        opacity: 0;
+    }
+    
+    100% {
+        opacity: 1;
+    }
+    }
+
+/* Introduction */
+.Introduction {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-size: 80px;
+}
+
+@media screen and (max-width:780px) {
+    .Introduction {
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+}
+
+.Shakunage-p {
+    width: 20vw;
+    height: 20hw;
+    position: absolute;
+    z-index: -1;
+}
+
+.Shakunage-p2 {
+    width: 20vw;
+    height: 20hw;
+    position: absolute;
+    left: 78vw;
+    z-index: -1;
+}
+
+p {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: 80px;
+    font-size: 30px;
+}
+
+@media screen and (max-width:780px) {
+    p {
+        font-size: 10px;
+        padding: 0;
+        width: 100vw;
+        /* margin-left: 30px; */
+    }
+}
+
+h2 {
+    font-size: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/* Spot  */
+.Spot {
+    font-size: 40px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    background: #a6d3c8;
+    color: white;
+    padding: 0.5em;
+    width: 60vw;
+    margin: 10px auto;
+}
+
+@media screen and (max-width:780px) {
+    .Spot {
+        font-size: 20px;
+        width: 90vw;
+        margin-top: 40px;
+    }
+}
+
+.Spot::before {
+    position: absolute;
+    content: "";
+    top: 100%;
+    left: 0;
+    border: none;
+    border-bottom: solid 15px transparent;
+}
+
+.Spot-roll {
+    width: 40vw;
+    height: 70vh;
+    margin: 0 auto;
+}
+
+@media screen and (max-width:780px) {
+    .Spot-roll {
+        width: 70vw;
+        height: 30vh;
+    }
+}
+
+footer {
+    background-color: aquamarine;
+    text-align: center;
+    font-size: 15px;
+}

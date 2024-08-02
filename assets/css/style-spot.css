@@ -1,0 +1,943 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-color: oldlace;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    background-color: aquamarine;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.nav {
+    display: flex;
+    padding: 10px;
+    background-color: aquamarine;
+}
+
+@media screen and (max-width:780px) {
+    .nav {
+    display: flex;
+    background-color: aquamarine;
+    }
+}
+
+li {
+    list-style: none;
+}
+
+@media screen and (max-width:780px) {
+    li {
+        background-color: aquamarine;
+    }
+}
+
+.nav > li > a {
+    color: white;
+    font-size: 20px;
+    padding-left: 60px;
+    text-decoration: none;
+    background-color: aquamarine;
+}
+
+@media screen and (max-width:780px) {
+    .nav > li > a {
+    color: white;
+    font-size: 10px;
+    padding-left: 40px;
+    text-decoration: none;
+    background-color: aquamarine;
+    }
+}
+
+
+/* ハンバーガーメニュー */
+#g-nav{
+    /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
+    position:fixed;
+    z-index: 999;
+    /*ナビのスタート位置と形状*/
+    top:-120%;
+    left:0;
+    width:100%;
+    height: 100vh;/*ナビの高さ*/
+    background:#999;
+    /*動き*/
+    transition: all 0.6s;
+}
+
+/*アクティブクラスがついたら位置を0に*/
+#g-nav.panelactive{
+    top: 0;
+}
+
+/*ナビゲーションの縦スクロール*/
+#g-nav.panelactive #g-nav-list{
+    /*ナビの数が増えた場合縦スクロール*/
+    position: fixed;
+    z-index: 999; 
+    width: 100%;
+    height: 100vh;/*表示する高さ*/
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/*ナビゲーション*/
+#g-nav ul {
+    /*ナビゲーション天地中央揃え*/
+    position: absolute;
+    z-index: 999;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+
+/*リストのレイアウト設定*/
+
+#g-nav li{
+    list-style: none;
+    text-align: center; 
+}
+
+#g-nav li a{
+    color: #333;
+    text-decoration: none;
+    padding:10px;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: bold;
+}
+
+/*========= ボタンのためのCSS ===============*/
+.openbtn1{
+    position:fixed;
+    z-index: 9999;/*ボタンを最前面に*/
+    right: 10px;
+    cursor: pointer;
+    width: 50px;
+    height:50px;
+    background-color: aquamarine;
+}
+
+@media screen and (max-width:780px) {
+    .openbtn1 {
+        height: 35px;
+        margin-top: -10px;
+    }
+}
+
+/* @media screen and (max-width:780px) {
+    .openbtn1 {
+        padding-bottom: 2px;
+    }
+} */
+
+/*×に変化*/  
+.openbtn1 span{
+    display: inline-block;
+    transition: all .4s;
+    position: absolute;
+    left: 14px;
+    height: 3px;
+    border-radius: 2px;
+    background-color: #666;
+    width: 45%;
+}
+
+.openbtn1 span:nth-of-type(1) {
+    top:15px; 
+}
+
+.openbtn1 span:nth-of-type(2) {
+    top:23px;
+}
+
+.openbtn1 span:nth-of-type(3) {
+    top:31px;
+}
+
+.openbtn1.active {
+    background-color: oldlace;
+}
+
+.openbtn1.active span:nth-of-type(1) {
+    top: 18px;
+    left: 18px;
+    transform: translateY(6px) rotate(-45deg);
+    width: 30%;
+}
+
+.openbtn1.active span:nth-of-type(2) {
+    opacity: 0;
+}
+
+.openbtn1.active span:nth-of-type(3){
+    top: 30px;
+    left: 18px;
+    transform: translateY(-6px) rotate(45deg);
+    width: 30%;
+}
+
+
+/* ブルーメの丘 */
+.flower {
+    font-size: 40px;
+    text-align: center;
+    position: relative;
+    background: #a6d3c8;
+    color: white;
+    padding: 0.5em;
+    width: 50vw;
+    margin: 100px auto;
+}
+
+@media screen and (max-width:780px) {
+    .flower {
+        font-size: 20px;
+        text-align: center;
+        position: relative;
+        background: #a6d3c8;
+        color: white;
+        padding: 0.5em;
+        width: 70vw;
+        margin: 100px auto;
+    }
+}
+
+.flower::before {
+    position: absolute;
+    content: "";
+    top: 100%;
+    left: 0;
+    border: none;
+    border-bottom: solid 15px transparent;
+    border-right: solid 20px rgb(149, 158, 155);
+}
+
+.contents-flower {
+    display: flex;
+}
+
+@media screen and (max-width:780px) {
+    .contents-flower {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+}
+
+.super-flower {
+    width: 50vw;
+}
+
+@media screen and (max-width:780px) {
+    .super-flower {
+        width: 70vw;
+        height: 30vh;
+        margin-top: -15px;
+    }
+}
+
+.flower-animals {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.alpaca {
+    display: flex;
+    width: 25%;
+    flex-direction: column;
+    height: 50%;
+}
+
+.alpaca > img {
+    text-align: center;
+}
+
+.alpaca > span {
+    font-size: 30px;
+    width: 100%;
+    text-align: center;
+}
+
+@media screen and (max-width:780px) {
+    .alpaca > span {
+        font-size: 10px;
+    }
+}
+
+.emu {
+    display: flex;
+    width: 25%;
+    flex-direction: column;
+    height: 50%;
+}
+
+.emu > img {
+    text-align: center;
+}
+
+.emu > span {
+    font-size: 30px;
+    width: 100%;
+    text-align: center;
+}
+
+@media screen and (max-width:780px) {
+    .emu > span {
+        font-size: 10px;
+    }
+}
+
+.kangaroo {
+    display: flex;
+    width: 25%;
+    flex-direction: column;
+    height: 50%;
+}
+
+.kangaroo > img {
+    text-align: center;
+}
+
+.kangaroo > span {
+    font-size: 30px;
+    width: 100%;
+    text-align: center;
+}
+
+@media screen and (max-width:780px) {
+    .kangaroo > span {
+        font-size: 10px;
+    }
+}
+
+.flower-p {
+    width: 50vw;
+}
+
+@media screen and (max-width:780px) {
+    .flower-p {
+        margin-top: -70px;
+        width: 70vw;
+        height:30vh;
+    }
+}
+
+.flower-p > img {
+    width: 100%;
+    border-radius: 10%;
+}
+
+.sentence-flower {
+    font-size: 20px;
+    position: relative;
+    background: #fff0cd;
+    box-shadow: 0px 0px 0px 5px #fff0cd;
+    border: dashed 2px white;
+    padding: 0.2em 0.5em;
+    color: #454545;  
+    text-align: center;
+    width: 95%;
+    margin-top: 30px;
+} 
+
+@media screen and (max-width:780px) {
+    .sentence-flower {
+        font-size: 10px;
+        width: 75vw;
+        margin-top: 10px;
+        margin-left: -20px;
+    }
+}
+
+.sentence-flower:after {
+    position: absolute;
+    content: '';
+    right: -7px;
+    top: -7px;
+    border-width: 0 15px 15px 0;
+    border-style: solid;
+    border-color: #ffdb88 #fff #ffdb88;
+    box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+/* グリム冒険の森 */
+.adventure {
+    font-size: 40px;
+    text-align: center;
+    position: relative;
+    background: #a6d3c8;
+    color: white;
+    padding: 0.5em;
+    width: 50vw;
+    margin: 100px auto;
+}
+
+@media screen and (max-width:780px) {
+    .adventure {
+        font-size: 20px;
+        text-align: center;
+        position: relative;
+        background: #a6d3c8;
+        color: white;
+        padding: 0.5em;
+        width: 70vw;
+        margin: 25px auto 50px;
+    }
+}
+
+.adventure::before {
+    position: absolute;
+    content: "";
+    top: 100%;
+    left: 0;
+    border: none;
+    border-bottom: solid 15px transparent;
+    border-right: solid 20px rgb(149, 158, 155);
+}
+
+.contents-adventure {
+    display: flex;
+}
+
+@media screen and (max-width:780px) {
+    .contents-adventure {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.super-adventure {
+    width: 50vw;
+}
+
+@media screen and (max-width:780px) {
+    .super-adventure {
+        width: 70vw;
+        height: 30vh;
+        margin-top: -30px;
+    }
+}
+
+.adventure-ps {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.cottage {
+    display: flex;
+    width: 25%;
+    flex-direction: column;
+    height: 50%;
+}
+
+.cottage > img {
+    text-align: center;
+}
+
+.cottage > span {
+    font-size: 30px;
+    width: 100%;
+    text-align: center;
+}
+
+@media screen and (max-width:780px) {
+    .cottage > span {
+        font-size: 10px;
+    }
+}
+
+.factory {
+    display: flex;
+    width: 25%;
+    flex-direction: column;
+    height: 50%;
+}
+
+.factory > img {
+    text-align: center;
+}
+
+.factory > span {
+    font-size: 30px;
+    width: 100%;
+    text-align: center;
+}
+
+@media screen and (max-width:780px) {
+    .factory > span {
+        font-size: 10px;
+    }
+}
+
+.park {
+    display: flex;
+    width: 25%;
+    flex-direction: column;
+    height: 50%;
+}
+
+.park > img {
+    text-align: center;
+}
+
+.park > span {
+    font-size: 30px;
+    width: 100%;
+    text-align: center;
+}
+
+@media screen and (max-width:780px) {
+    .park > span {
+        font-size: 10px;
+    }
+}
+
+.adventure-p {
+    width: 50vw;
+}
+
+@media screen and (max-width:780px) {
+    .adventure-p {
+        margin-top: -20px;
+        width: 70vw;
+        height: 30vh;
+    }
+}
+
+.adventure-p > img {
+    width: 100%;
+    border-radius: 10%;
+}
+
+.sentence-adventure {
+    font-size: 20px;
+    position: relative;
+    background: #fff0cd;
+    box-shadow: 0px 0px 0px 5px #fff0cd;
+    border: dashed 2px white;
+    padding: 0.2em 0.5em;
+    color: #454545;  
+    text-align: center;
+    width: 90%;
+    margin-top: 30px;
+    margin-left: 30px;
+} 
+
+@media screen and (max-width:780px) {
+    .sentence-adventure {
+        font-size: 10px;
+        width: 70vw;
+        margin-left: -10px;
+        margin-top: 3%
+    }
+}
+
+.sentence-adventure:after {
+    position: absolute;
+    content: '';
+    right: -7px;
+    top: -7px;
+    border-width: 0 15px 15px 0;
+    border-style: solid;
+    border-color: #ffdb88 #fff #ffdb88;
+    box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+
+/* 近江日野商人館 */
+.merchant-hall {
+    font-size: 40px;
+    text-align: center;
+    position: relative;
+    background: #a6d3c8;
+    color: white;
+    padding: 0.5em;
+    width: 50vw;
+    margin: 100px auto 30px;
+}
+
+@media screen and (max-width:780px) {
+    .merchant-hall {
+        font-size: 20px;
+        text-align: center;
+        position: relative;
+        background: #a6d3c8;
+        color: white;
+        padding: 0.5em;
+        width: 70vw;
+        margin: 50px auto;
+        margin-top: -15px;
+    }
+}
+
+.merchant-hall::before {
+    position: absolute;
+    content: "";
+    top: 100%;
+    left: 0;
+    border: none;
+    border-bottom: solid 15px transparent;
+    border-right: solid 20px rgb(149, 158, 155);
+}
+
+.contents-merchant-hall {
+    display: flex;
+}
+
+@media screen and (max-width:780px) {
+    .contents-merchant-hall {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+}
+
+.super-merchant-hall {
+    width: 50vw;
+}
+
+@media screen and (max-width:780px) {
+    .super-merchant-hall {
+        width: 70vw;
+        height: 30vh;
+    }
+}
+
+.merchant-halls {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+/* @media screen and (max-width:780px) {
+    .merchant-halls {
+        margin-top: -20px;
+    }
+} */
+
+.merchant-hall-in1 {
+    display: flex;
+    width: 25%;
+    flex-direction: column;
+    height: 50%;
+}
+
+.merchant-hall-in1 > img {
+    text-align: center;
+}
+
+.merchant-hall-in1 > span {
+    font-size: 30px;
+    width: 100%;
+    text-align: center;
+}
+
+@media screen and (max-width:780px) {
+    .merchant-hall-in1 > span {
+        font-size: 10px;
+    }
+}
+
+.merchant-hall-in2 {
+    display: flex;
+    width: 25%;
+    flex-direction: column;
+    height: 50%;
+}
+
+.merchant-hall-in2 > img {
+    text-align: center;
+}
+
+.merchant-hall-in2 > span {
+    font-size: 30px;
+    width: 100%;
+    text-align: center;
+}
+
+@media screen and (max-width:780px) {
+    .merchant-hall-in2 > span {
+        font-size: 10px;
+    }
+}
+
+.merchant-hall-out {
+    display: flex;
+    width: 25%;
+    flex-direction: column;
+    height: 50%;
+}
+
+.merchant-hall-out > img {
+    text-align: center;
+}
+
+.merchant-hall-out > span {
+    font-size: 30px;
+    width: 100%;
+    text-align: center;
+}
+
+@media screen and (max-width:780px) {
+    .merchant-hall-out > span {
+        font-size: 10px;
+    }
+}
+
+.merchant-hall-p {
+    width: 50vw;
+}
+
+@media screen and (max-width:780px) {
+    .merchant-hall-p {
+        margin-top: -20px;
+        width: 70vw;
+        height: 30vh;
+    }
+}
+
+.merchant-hall-p > img {
+    width: 100%;
+    border-radius: 10%;
+}
+
+.sentence-merchant-hall {
+    font-size: 20px;
+    position: relative;
+    background: #fff0cd;
+    box-shadow: 0px 0px 0px 5px #fff0cd;
+    border: dashed 2px white;
+    padding: 0.2em 0.5em;
+    color: #454545;
+    text-align: center;
+    width: 95%;
+    margin-top: 40px;
+}
+
+@media screen and (max-width:780px) {
+    .sentence-merchant-hall {
+        font-size: 10px;
+        width: 90%;
+        margin-top: 10px;
+    }
+}
+
+.sentence-merchant-hall:after {
+    position: absolute;
+    content: '';
+    right: -7px;
+    top: -7px;
+    border-width: 0 15px 15px 0;
+    border-style: solid;
+    border-color: #ffdb88 #fff #ffdb88;
+    box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+/* 綿向山 */
+.Mt-Watamuki {
+    font-size: 40px;
+    text-align: center;
+    position: relative;
+    background: #a6d3c8;
+    color: white;
+    padding: 0.5em;
+    width: 50vw;
+    margin: 100px auto;
+}
+
+@media screen and (max-width:780px) {
+    .Mt-Watamuki {
+        font-size: 20px;
+        text-align: center;
+        position: relative;
+        background: #a6d3c8;
+        color: white;
+        padding: 0.5em;
+        width: 70vw;
+        margin: 50px auto;
+    }
+}
+
+.Mt-Watamuki::before {
+    position: absolute;
+    content: "";
+    top: 100%;
+    left: 0;
+    border: none;
+    border-bottom: solid 15px transparent;
+    border-right: solid 20px rgb(149, 158, 155);
+}
+
+.contents-Mt-Watamuki {
+    display: flex;
+}
+
+@media screen and (max-width:780px) {
+    .contents-Mt-Watamuki {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.super-Mt-Watamuki {
+    width: 50vw;
+}
+
+.Mt-Watamuki-ps {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+@media screen and (max-width:780px) {
+    .super-Mt-Watamuki {
+        width: 70vw;
+        height: 30vh;
+        margin-top: -40px;
+    }
+}
+
+.Watamuki-s {
+    display: flex;
+    width: 25%;
+    flex-direction: column;
+    height: 50%;
+}
+
+.Watamuki-s > img {
+    text-align: center;
+}
+
+.Watamuki-s > span {
+    font-size: 30px;
+    width: 100%;
+    text-align: center;
+}
+
+@media screen and (max-width:780px) {
+    .Watamuki-s > span {
+        font-size: 10px;
+    }
+}
+
+.tower {
+    display: flex;
+    width: 25%;
+    flex-direction: column;
+    height: 50%;
+}
+
+.tower > img {
+    text-align: center;
+}
+
+.tower > span {
+    font-size: 30px;
+    width: 100%;
+    text-align: center;
+}
+
+@media screen and (max-width:780px) {
+    .tower > span {
+        font-size: 10px;
+    }
+}
+
+.koya {
+    display: flex;
+    width: 25%;
+    flex-direction: column;
+    height: 50%;
+}
+
+.koyo > img {
+    text-align: center;
+}
+
+.koya > span {
+    font-size: 30px;
+    width: 100%;
+    text-align: center;
+}
+
+@media screen and (max-width:780px) {
+    .koya > span {
+        font-size: 10px;
+    }
+}
+
+.Mt-Watamuki-p {
+    width: 50vw;
+}
+
+@media screen and (max-width:780px) {
+    .Mt-Watamuki-p {
+        margin-top: -20px;
+        width: 70vw;
+        height: 35vh;
+    }
+}
+
+.Mt-Watamuki-p > img {
+    width: 100%;
+    border-radius: 10%;
+}
+
+
+.sentence-Mt-Watamuki {
+    font-size: 20px;
+    position: relative;
+    background: #fff0cd;
+    box-shadow: 0px 0px 0px 5px #fff0cd;
+    border: dashed 2px white;
+    padding: 0.2em 0.5em;
+    color: #454545;  
+    text-align: center;
+    width: 90%;
+    margin-top: 30px;
+    margin-left: 30px;
+} 
+
+@media screen and (max-width:780px) {
+    .sentence-Mt-Watamuki {
+        font-size: 10px;
+        width: 100%; 
+        margin-left: -1px;
+        margin-top: 3%;
+    }
+}
+
+.sentence-Mt-Watamuki:after {
+    position: absolute;
+    content: '';
+    right: -7px;
+    top: -7px;
+    border-width: 0 15px 15px 0;
+    border-style: solid;
+    border-color: #ffdb88 #fff #ffdb88;
+    box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+footer {
+    background-color: aquamarine;
+    text-align: center;
+    font-size: 15px;
+}
+
+small {
+    background-color: aquamarine;
+}
